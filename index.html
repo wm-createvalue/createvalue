@@ -27,9 +27,12 @@
   /* ─── LOGO — wordmark ─── */
   .logo-mark { display: flex; align-items: center; text-decoration: none; }
   .logo-wordmark { font-family: 'Nunito Sans', sans-serif; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; color: var(--navy); }
-  .logo-wordmark span { color: var(--teal); }
-  .logo-mark.light .logo-wordmark { color: var(--white); }
-  .logo-mark.light .logo-wordmark span { color: var(--gold-light); }
+  .logo-wordmark .logo-create { color: var(--teal); font-weight: 300; }
+  .logo-wordmark .logo-slash { color: var(--gold); font-weight: 300; margin: 0 1px; }
+  .logo-wordmark .logo-val { color: var(--navy); font-weight: 800; }
+  .logo-mark.light .logo-wordmark .logo-create { color: var(--gold-light); }
+  .logo-mark.light .logo-wordmark .logo-slash { color: rgba(255,255,255,0.4); }
+  .logo-mark.light .logo-wordmark .logo-val { color: var(--white); }
 
   /* ─── NAV ─── */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 4rem; background: rgba(248,247,244,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--rule); }
@@ -376,7 +379,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="logo-mark">
-    <span class="logo-wordmark"><span>Create</span>Value</span>
+    <span class="logo-wordmark"><span class="logo-create">create</span><span class="logo-slash">/</span><span class="logo-val">value</span></span>
   </a>
   <ul class="nav-links">
     <li><a href="#what">Our Approach</a></li>
@@ -870,7 +873,7 @@
 <!-- FOOTER -->
 <footer>
   <a href="#" class="logo-mark light">
-    <span class="logo-wordmark"><span>Create</span>Value</span>
+    <span class="logo-wordmark"><span class="logo-create">create</span><span class="logo-slash">/</span><span class="logo-val">value</span></span>
   </a>
   <ul class="footer-links">
     <li><a href="#">Our Approach</a></li>
