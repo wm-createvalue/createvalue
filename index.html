@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>createvalue — Strategic Advisory | Food & Beverage · Agrifood · FoodTech</title>
+<meta name="description" content="Strategic advisory for food and beverage, agrifood, and functional food business owners who want to grow and create compound value.">
+<link rel="canonical" href="https://www.createvalue.ca/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy: #0d1f35;
+    --navy-mid: #162d4a;
+    --teal: #4a7c59;
+    --teal-light: #6aac7c;
+    --gold: #c8a84b;
+    --gold-light: #e4cb85;
+    --off-white: #f8f7f4;
+    --white: #ffffff;
+    --muted: #8899aa;
+    --rule: #d0dae5;
+    --text: #1a2b3c;
+    --text-light: #4a6278;
+    /* Sector accent — a warm earthy green suggesting field/farm */
+    --sector: #4a7c59;
+    --sector-light: #6aac7c;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito Sans', sans-serif; background: var(--off-white); color: var(--text); overflow-x: hidden; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem 4rem;
+    background: rgba(248,247,244,0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .logo-mark { display: flex; align-items: center; gap: 0; text-decoration: none; }
+  .logo-wordmark { font-family: 'Nunito Sans', sans-serif; font-size: 1.05rem; letter-spacing: -0.02em; line-height: 1; }
+  .logo-wordmark .mps { color: var(--navy); font-weight: 800; }
+  .logo-wordmark .sep { color: var(--gold); font-weight: 300; margin: 0 3px; }
+  .logo-wordmark .cv { color: var(--teal); font-weight: 300; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta { color: var(--white) !important; background: var(--teal) !important; padding: 0.55rem 1.3rem !important; border-radius: 2px; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--navy) !important; }
+  .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+  .nav-mobile-toggle span { display: block; width: 22px; height: 1.5px; background: var(--navy); transition: all 0.25s; }
+
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh; background: var(--navy); display: flex; align-items: center;
+    padding: 0; padding-top: 58px; position: relative; overflow: hidden;
+  }
+  /* Subtle food/field texture suggestion via layered gradients */
+  .hero-bg-img {
+    position: absolute; inset: 0;
+    background: url('hero-bg.jpg') center center / cover no-repeat;
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(13,31,53,0.72) 0%, rgba(13,31,53,0.52) 55%, rgba(13,31,53,0.30) 100%),
+                radial-gradient(ellipse at 10% 80%, rgba(74,124,89,0.08) 0%, transparent 50%);
+    pointer-events: none; z-index: 1;
+  }
+  /* Grain texture overlay */
+  .hero::after {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4; pointer-events: none;
+  }
+  .hero-inner { max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; position: relative; z-index: 2; padding: 3rem 4rem; }
+  .hero-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+  .eyebrow-line { width: 2rem; height: 1px; background: var(--teal-light); }
+  .eyebrow-text { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--teal-light); }
+  .hero-headline { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 3.8vw, 4.4rem); font-weight: 500; line-height: 1.1; color: var(--white); margin-bottom: 1.5rem; letter-spacing: -0.01em; }
+  .hero-headline em { font-style: italic; color: var(--gold-light); }
+  .hero-sub { font-size: 0.9rem; font-weight: 300; line-height: 1.85; color: rgba(255,255,255,0.62); max-width: 44ch; margin-bottom: 2.5rem; }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  .btn-gold { font-family: 'Nunito Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 0.9rem 2rem; text-decoration: none; border-radius: 2px; transition: background 0.2s, transform 0.15s; display: inline-block; }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-ghost { font-family: 'Nunito Sans', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; border: 1px solid rgba(255,255,255,0.22); padding: 0.9rem 1.6rem; border-radius: 2px; transition: all 0.2s; display: inline-block; }
+  .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.5); }
+
+  /* Hero right */
+  .hero-right { display: flex; flex-direction: column; gap: 0; }
+  .hero-pull { border-left: 2px solid var(--teal); padding-left: 1.75rem; margin-bottom: 2.25rem; }
+  .hero-pull p { font-family: 'Playfair Display', serif; font-size: 1.08rem; font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.65; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden; }
+  .stat { background: rgba(255,255,255,0.03); padding: 1.35rem; transition: background 0.2s; }
+  .stat:hover { background: rgba(74,124,89,0.12); }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 500; color: var(--gold-light); display: block; line-height: 1; margin-bottom: 0.3rem; }
+  .stat-lbl { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+  /* ─── SECTOR TAGS (new) — shown under hero stats ─── */
+  .sector-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .sector-tag-item { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sector-light); border: 1px solid rgba(106,172,124,0.28); padding: 0.28rem 0.65rem; border-radius: 2px; }
+
+  /* ─── SHARED ─── */
+  section { padding: 6rem 0; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+  .section-label { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--teal); }
+  .section-label::before { content: ''; display: block; width: 1.5rem; height: 2px; background: var(--teal); border-radius: 1px; }
+  .section-headline { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.6vw, 2.7rem); font-weight: 500; line-height: 1.2; color: var(--navy); margin-bottom: 1.5rem; }
+  .section-headline em { font-style: italic; color: var(--teal); }
+  .body-text { font-size: 0.87rem; font-weight: 300; line-height: 1.9; color: var(--text-light); margin-bottom: 1.15rem; }
+  .btn-teal { font-family: 'Nunito Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: var(--teal); padding: 0.85rem 1.85rem; text-decoration: none; border-radius: 2px; display: inline-block; transition: background 0.2s, transform 0.15s; }
+  .btn-teal:hover { background: var(--navy); transform: translateY(-1px); }
+
+  /* fade-in on scroll */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-d1 { transition-delay: 0.08s; }
+  .reveal-d2 { transition-delay: 0.16s; }
+  .reveal-d3 { transition-delay: 0.24s; }
+
+  /* ─── ABOUT (SECTION 2) ─── */
+  #about { background: var(--off-white); border-bottom: 1px solid var(--rule); }
+  .about-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; max-width: 720px; }
+  .about-img { border-radius: 2px; overflow: hidden; }
+  .about-img img { width: 100%; height: auto; display: block; max-height: 480px; object-fit: cover; object-position: center top; }
+  .about-content {}
+  .about-mini-stats { display: flex; gap: 2.5rem; margin-top: 2rem; padding-top: 1.75rem; border-top: 1px solid var(--rule); }
+  .mini-stat-num { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 500; color: var(--navy); display: block; line-height: 1; margin-bottom: 0.25rem; }
+  .mini-stat-lbl { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .linkedin-link { display: inline-block; margin-top: 1.5rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: var(--teal); text-decoration: none; transition: color 0.2s; }
+  .linkedin-link:hover { color: var(--navy); }
+
+  /* ─── SECTOR CALLOUT STRIP (new) ─── */
+  .sector-strip {
+    background: var(--sector); padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 3rem;
+  }
+  .sector-strip-label { font-size: 0.55rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 0.75rem; }
+  .sector-strip-hed { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 500; color: var(--white); line-height: 1.2; max-width: 34ch; }
+  .sector-strip-hed em { font-style: italic; color: var(--gold-light); }
+  .sector-strip-pillars { display: flex; gap: 1.5rem; flex-wrap: wrap; flex-shrink: 0; }
+  .sector-pillar { text-align: center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 2px; padding: 1rem 1.25rem; min-width: 90px; transition: background 0.2s; }
+  .sector-pillar:hover { background: rgba(255,255,255,0.17); }
+  .sector-pillar-icon { font-size: 1.3rem; display: block; margin-bottom: 0.4rem; }
+  .sector-pillar-name { font-size: 0.55rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.75); line-height: 1.4; }
+
+  /* ─── SERVICES (SECTION 3) ─── */
+  #services { background: var(--navy); }
+  .services-label { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--teal-light); }
+  .services-label::before { content: ''; display: block; width: 1.5rem; height: 2px; background: var(--teal-light); border-radius: 1px; }
+  .services-hed { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.6vw, 2.6rem); font-weight: 500; color: var(--white); line-height: 1.15; margin-bottom: 3.5rem; max-width: 28ch; }
+  .services-hed em { font-style: italic; color: var(--gold-light); }
+  .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .service-card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    padding: 2.75rem; transition: background 0.25s, border-color 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--teal); transition: height 0.35s ease; }
+  .service-card:hover::before { height: 100%; }
+  .service-card:hover { background: rgba(74,124,89,0.09); border-color: rgba(74,124,89,0.28); }
+  .svc-icon { width: 40px; height: 40px; border: 1px solid rgba(200,168,75,0.3); border-radius: 2px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: rgba(200,168,75,0.04); }
+  .svc-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 500; color: var(--white); margin-bottom: 0.35rem; }
+  .svc-tag { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 1.25rem; }
+  .svc-desc { font-size: 0.81rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 1.5rem; }
+  .svc-items { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+  .svc-items li { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.82rem; font-weight: 400; color: rgba(255,255,255,0.66); line-height: 1.5; }
+  .svc-items li::before { content: ''; display: block; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 0.46rem; }
+
+  /* ─── WHO IT'S FOR (SECTION 4) ─── */
+  #for { background: var(--white); border-bottom: 1px solid var(--rule); }
+  .for-header { margin-bottom: 3rem; max-width: 32ch; }
+  .for-header .section-headline { margin-bottom: 0.75rem; }
+  .for-header .body-text { margin-bottom: 0; }
+  .for-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+  .for-item { display: flex; gap: 1.1rem; align-items: flex-start; padding: 1.5rem; background: var(--off-white); border: 1px solid var(--rule); border-radius: 2px; transition: all 0.2s; margin-bottom: 2px; }
+  .for-item:hover { border-color: var(--teal); background: rgba(74,124,89,0.03); }
+  .for-check { width: 24px; height: 24px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; }
+  .for-item-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 500; color: var(--navy); margin-bottom: 0.35rem; line-height: 1.35; }
+  .for-item-body { font-size: 0.79rem; font-weight: 300; color: var(--text-light); line-height: 1.75; }
+
+  /* ─── RESULTS (SECTION 5) ─── */
+  #results { background: var(--navy); }
+  .results-label { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--teal-light); }
+  .results-label::before { content: ''; display: block; width: 1.5rem; height: 2px; background: var(--teal-light); border-radius: 1px; }
+  .results-hed { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.6vw, 2.6rem); font-weight: 500; color: var(--white); line-height: 1.15; margin-bottom: 3.5rem; }
+  .results-hed em { font-style: italic; color: var(--gold-light); }
+  .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+  .result-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); padding: 2.25rem; transition: background 0.2s; }
+  .result-card:hover { background: rgba(74,124,89,0.07); }
+  .result-badge { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 1.25rem; }
+  .result-metrics { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .result-metric-num { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--gold-light); display: block; line-height: 1; margin-bottom: 0.2rem; }
+  .result-metric-lbl { font-size: 0.55rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .result-quote { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 1.25rem; font-style: italic; }
+  .result-role { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; color: rgba(255,255,255,0.35); text-transform: uppercase; }
+  /* Sector flag on result cards (new) */
+  .result-flag { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.52rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sector-light); background: rgba(74,124,89,0.12); border: 1px solid rgba(74,124,89,0.25); border-radius: 2px; padding: 0.2rem 0.55rem; margin-bottom: 0.85rem; }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--navy-mid); border-top: 1px solid rgba(255,255,255,0.06); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  .contact-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--teal-light); }
+  .contact-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 2px; background: var(--teal-light); border-radius: 1px; }
+  .contact-hed { font-family: 'Playfair Display', serif; font-size: clamp(1.65rem, 2.2vw, 2.2rem); font-weight: 500; color: var(--white); line-height: 1.2; margin-bottom: 1.1rem; }
+  .contact-hed em { font-style: italic; color: var(--gold-light); }
+  .contact-sub { font-size: 0.86rem; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.85; margin-bottom: 2rem; }
+  .contact-promises { display: flex; flex-direction: column; gap: 0.65rem; }
+  .promise { display: flex; align-items: center; gap: 0.65rem; font-size: 0.78rem; font-weight: 300; color: rgba(255,255,255,0.55); }
+  .promise-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal-light); flex-shrink: 0; }
+  .form-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 2px; padding: 2.5rem; }
+  .form-intro { font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.5); margin-bottom: 1.75rem; line-height: 1.7; }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-label { display: block; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem; }
+  .form-required { color: var(--gold); }
+  .form-input {
+    width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 2px; padding: 0.75rem 1rem; font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.85rem; font-weight: 300; color: var(--white); outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input::placeholder { color: rgba(255,255,255,0.22); }
+  .form-input:focus { border-color: var(--teal); }
+  .form-input.invalid { border-color: #e05a5a; }
+  .form-error { display: none; font-size: 0.65rem; color: #e05a5a; margin-top: 0.35rem; }
+  .form-error.visible { display: block; }
+  .form-submit {
+    width: 100%; background: var(--gold); border: none; border-radius: 2px;
+    padding: 0.95rem; font-family: 'Nunito Sans', sans-serif; font-size: 0.68rem;
+    font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy);
+    cursor: pointer; transition: background 0.2s; margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  }
+  .form-submit:hover:not(:disabled) { background: var(--gold-light); }
+  .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+  .form-note { font-size: 0.62rem; color: rgba(255,255,255,0.25); text-align: center; margin-top: 0.85rem; }
+  .form-state { display: none; flex-direction: column; align-items: center; text-align: center; padding: 1.5rem 0; gap: 0.75rem; }
+  .state-icon { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .state-icon.success { background: rgba(74,124,89,0.25); }
+  .state-icon.error { background: rgba(224,90,90,0.22); }
+  .state-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--white); }
+  .state-body { font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.7; }
+  .form-retry { background: none; border: 1px solid rgba(255,255,255,0.2); border-radius: 2px; color: rgba(255,255,255,0.55); font-family: 'Nunito Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.6rem 1.4rem; cursor: pointer; transition: all 0.2s; }
+  .form-retry:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+
+  /* ─── INSIGHTS ─── */
+  #insights { background: var(--white); border-bottom: 1px solid var(--rule); }
+  .insights-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--rule); }
+  .insights-hed { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.6vw, 2.6rem); font-weight: 500; color: var(--navy); line-height: 1.15; }
+  .insights-hed em { font-style: italic; color: var(--teal); }
+  .insights-sub { font-size: 0.86rem; font-weight: 300; color: var(--text-light); max-width: 32ch; line-height: 1.75; text-align: right; }
+  .insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+  .insight-card { background: var(--off-white); border: 1px solid var(--rule); border-radius: 2px; padding: 2rem; transition: all 0.25s; text-decoration: none; display: flex; flex-direction: column; }
+  .insight-card:hover { border-color: var(--teal); box-shadow: 0 8px 28px rgba(74,124,89,0.08); transform: translateY(-2px); }
+  .insight-tag { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; }
+  .insight-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 500; color: var(--navy); line-height: 1.4; margin-bottom: 0.75rem; flex: 1; }
+  .insight-excerpt { font-size: 0.82rem; font-weight: 300; color: var(--text-light); line-height: 1.75; margin-bottom: 1.5rem; }
+  .insight-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
+  .insight-read { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .insight-arrow { font-size: 0.9rem; color: var(--teal); transition: transform 0.2s; }
+  .insight-card:hover .insight-arrow { transform: translateX(4px); }
+  .insights-cta { text-align: center; }
+  .btn-outline-navy { font-family: 'Nunito Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); border: 1.5px solid var(--navy); padding: 0.9rem 2.25rem; border-radius: 2px; text-decoration: none; display: inline-block; transition: all 0.2s; }
+  .btn-outline-navy:hover { background: var(--navy); color: var(--white); }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: 'Nunito Sans', sans-serif; font-size: 0.92rem; font-weight: 800; letter-spacing: -0.02em; color: rgba(255,255,255,0.4); }
+  .footer-logo span { color: rgba(200,168,75,0.5); font-weight: 300; }
+  .footer-copy { font-size: 0.62rem; color: rgba(255,255,255,0.22); letter-spacing: 0.04em; }
+  .footer-sectors { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+  .footer-sector-tag { font-size: 0.5rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(106,172,124,0.5); }
+
+  /* ─── MOBILE NAV DRAWER ─── */
+  .nav-drawer {
+    position: fixed; top: 0; right: -280px; width: 280px; height: 100vh;
+    background: var(--navy); z-index: 200; padding: 5rem 2rem 2rem;
+    transition: right 0.3s ease; border-left: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-drawer.open { right: 0; }
+  .nav-drawer ul { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
+  .nav-drawer a { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; }
+  .nav-drawer a.cta-mobile { color: var(--gold); }
+  .drawer-close { position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; color: rgba(255,255,255,0.4); font-size: 1.5rem; cursor: pointer; line-height: 1; }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 900px) {
+    #services { background: var(--off-white); }
+    .services-label { color: var(--teal); }
+    .services-label::before { background: var(--teal); }
+    .services-hed { color: var(--navy); }
+    .services-hed em { color: var(--teal); }
+    .service-card { background: var(--white); border: 1px solid var(--rule); }
+    .service-card:hover { background: rgba(74,124,89,0.04); border-color: var(--teal); }
+    .svc-title { color: var(--navy); }
+    .svc-desc { color: var(--text-light); }
+    .svc-items li { color: var(--text); }
+    #canada-landscape { padding: 4rem 0; }
+    #canada-landscape .landscape-cards { grid-template-columns: 1fr !important; }
+    #canada-landscape .landscape-cards > div { padding: 1.5rem !important; }
+    .landscape-bridge { flex-direction: column; align-items: flex-start !important; }
+    .landscape-bridge a { width: 100%; text-align: center; box-sizing: border-box; }
+    .result-card { padding: 1.5rem !important; }
+    .for-item { padding: 1rem 0; }
+    .result-flag { font-size: 0.65rem !important; }
+    .result-quote { font-size: 0.8rem !important; }
+    #results { background: var(--off-white); }
+    .results-label { color: var(--teal); }
+    .results-label::before { background: var(--teal); }
+    .results-hed { color: var(--navy); }
+    .results-hed em { color: var(--teal); }
+    #results > .wrap > p { color: var(--text-light) !important; }
+    .result-card { background: var(--white); border: 1px solid var(--rule); }
+    .result-card:hover { background: rgba(74,124,89,0.04); }
+    .result-badge { color: var(--teal); }
+    .result-metric-num { color: var(--teal); }
+    .result-metric-lbl { color: var(--text-light); }
+    .result-quote { color: var(--text-light); }
+    .result-role { color: var(--muted); }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .nav-mobile-toggle { display: flex; }
+    .hero { padding: 0; padding-top: 58px; min-height: auto; }
+    .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem 3.5rem; }
+    .hero-headline { font-size: clamp(2rem, 7vw, 3rem); }
+    .hero-sub { max-width: 100%; font-size: 0.85rem; margin-bottom: 2rem; }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .btn-gold, .btn-ghost { width: 100%; text-align: center; }
+    .hero-right { gap: 1.5rem; }
+    .hero-pull { margin-bottom: 0; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .sector-tags { margin-top: 0.75rem; }
+    section { padding: 4rem 0; }
+    .wrap { padding: 0 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-img { order: -1; }
+    .about-img img { max-height: 280px; }
+    .services-grid, .for-grid, .results-grid, .insights-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .sector-strip { flex-direction: column; align-items: flex-start; padding: 2rem 1.5rem; }
+    footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem 1.5rem; }
+    .footer-sectors { justify-content: center; }
+  }
+  .acc-tag { font-size:0.72rem; font-weight:400; color:rgba(255,255,255,0.55); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.09); padding:0.3rem 0.7rem; border-radius:2px; white-space:nowrap; }
+  @media (max-width: 900px) {
+    .acc-tag { font-size:0.68rem; color:var(--text); background:rgba(0,0,0,0.04); border-color:var(--rule); }
+    .accordion-item { border-color:var(--rule) !important; }
+    .accordion-item button { background:var(--white) !important; }
+    .accordion-item button span { color:var(--text-light) !important; }
+    .accordion-item button svg path { stroke:var(--text-light) !important; }
+    .accordion-body { background:var(--off-white) !important; }
+    .accordion-wrap { border-top-color:var(--rule) !important; }
+  }
+    .hero-headline { font-size: clamp(1.85rem, 8vw, 2.4rem); }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    #canada-landscape .landscape-stats { grid-template-columns: 1fr 1fr !important; }
+    .about-mini-stats { flex-wrap: wrap; gap: 1.5rem; }
+    .result-metrics { flex-wrap: wrap; gap: 1rem; }
+    .sector-strip-pillars { gap: 0.75rem; }
+    .sector-pillar { min-width: 72px; padding: 0.75rem 0.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo-mark">
+    <span class="logo-wordmark"><span class="mps">MPS</span><span class="sep">|</span><span class="cv">CreateValue</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#for">Who It's For</a></li>
+    <li><a href="#canada-landscape">The Landscape</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#contact" class="nav-cta">Start a Conversation</a></li>
+  </ul>
+  <button class="nav-mobile-toggle" id="menuToggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <button class="drawer-close" id="drawerClose">×</button>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#for">Who It's For</a></li>
+    <li><a href="#canada-landscape">The Landscape</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#contact" class="cta-mobile">Start a Conversation →</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <!-- Updated eyebrow to reflect sector specialization -->
+        <span class="eyebrow-text">Food &amp; Beverage · Agrifood · FoodTech Advisory</span>
+      </div>
+      <!-- Headline unchanged -->
+      <h1 class="hero-headline">Funding is the fuel.<br><em>Compound value</em><br>is the engine.</h1>
+      <!-- Sub updated to anchor to sector -->
+      <p class="hero-sub">For Canadian food business owners at the $2M–$20M stage who are ready to grow with intention. The right capital, at the right time — and a clear thread running through every decision that follows.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-gold">Start a Conversation</a>
+        <a href="#services" class="btn-ghost">How We Work</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">11+</span>
+          <span class="stat-lbl">Years advising</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">+$100M</span>
+          <span class="stat-lbl">Investments supported</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">6</span>
+          <!-- Updated stat: countries -->
+          <span class="stat-lbl">Countries served</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">Est. '14</span>
+          <span class="stat-lbl">createvalue Advisory</span>
+        </div>
+      </div>
+      <!-- Sector tags -->
+      <div class="sector-tags">
+        <span class="sector-tag-item">Food &amp; Bev</span>
+        <span class="sector-tag-item">Agrifood</span>
+        <span class="sector-tag-item">Functional</span>
+        <span class="sector-tag-item">FoodTech</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-content">
+        <div class="section-label reveal">About</div>
+        <!-- Headline unchanged -->
+        <h2 class="section-headline reveal reveal-d1">You need someone who thinks with you — <em>not just for you.</em></h2>
+        <!-- Pull quote unchanged -->
+        <p class="body-text reveal reveal-d1" style="font-weight:600;color:var(--navy);border-left:2px solid var(--gold);padding-left:1.25rem;margin-bottom:1.75rem;">"For us it's never just about finding growth capital, or solving the immediate problem. It's about understanding what you are building, why it matters, and what it needs to compound."</p>
+        <p class="body-text reveal reveal-d2">Werner Müller founded MPS | CreateValue after more than a decade working alongside food business owners across six countries. Different markets, different stages — but the same gap every time: owners doing real work, without someone who actually understood what they were trying to build.</p>
+        <p class="body-text reveal reveal-d2">The decisions that matter most tend to fall between your accountant and your bank, between this year and the next five. That's where we work — thinking alongside you, helping you see the full picture, and making sure the moves you make today still look smart three years from now.</p>
+        <a href="https://www.linkedin.com/in/werner-m%C3%BCller" target="_blank" rel="noopener" class="linkedin-link reveal reveal-d2">Connect on LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="services-label reveal">What We Offer</div>
+    <!-- Headline unchanged -->
+    <h2 class="services-hed reveal reveal-d1">Two ways to work together.<br><em>One clear thread.</em></h2>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-d1">
+        <div class="svc-icon">
+          <svg viewBox="0 0 22 22" fill="none" width="20" height="20">
+            <circle cx="11" cy="11" r="8.5" stroke="#c8a84b" stroke-width="1.3"/>
+            <path d="M11 5v6l3.5 2.5" stroke="#c8a84b" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <!-- Title unchanged -->
+        <div class="svc-title">Capital — done properly</div>
+        <div class="svc-tag">Can I. Should I. What if.</div>
+        <!-- Desc unchanged -->
+        <p class="svc-desc">Most capital conversations start with "how do we get this funded." We start earlier — with whether you should, on what terms, and what it means for everything that follows.</p>
+        <!-- Items: sector-specific language woven in -->
+        <ul class="svc-items">
+          <li>Business plans, financial projections, and scenario modeling</li>
+          <li>Feasibility studies for new ventures, processing lines, or market entry</li>
+          <li>Growth capital strategy — positioning, readiness, and access</li>
+        </ul>
+        <div style="margin-top:1.75rem;">
+          <a href="#canada-landscape" class="btn-methodology" style="font-family:'Nunito Sans',sans-serif;font-size:0.63rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(200,168,75,0.35);padding:0.65rem 1.25rem;text-decoration:none;border-radius:2px;display:inline-block;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.background='rgba(200,168,75,0.08)';" onmouseout="this.style.borderColor='rgba(200,168,75,0.35)';this.style.background='transparent';">The Landscape →</a>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-d2">
+        <div class="svc-icon">
+          <svg viewBox="0 0 22 22" fill="none" width="20" height="20">
+            <rect x="3" y="3" width="7" height="7" rx="0.5" stroke="#c8a84b" stroke-width="1.2"/>
+            <rect x="12" y="3" width="7" height="7" rx="0.5" stroke="#c8a84b" stroke-width="1.2"/>
+            <rect x="3" y="12" width="7" height="7" rx="0.5" stroke="#c8a84b" stroke-width="1.2"/>
+            <rect x="12" y="12" width="7" height="7" rx="0.5" stroke="#c8a84b" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <!-- Title unchanged -->
+        <div class="svc-title">Growth that compounds</div>
+        <div class="svc-tag">Growth that builds on itself.</div>
+        <!-- Desc unchanged -->
+        <p class="svc-desc">Getting funded is the start, not the finish. We stay alongside you — helping make sure every decision that follows creates value that carries forward, not just results that reset.</p>
+        <!-- Items: food sector context -->
+        <ul class="svc-items">
+          <li>Navigate growth transitions — from producer to processor, regional to national, or into adjacent categories</li>
+          <li>Fill the gaps without hiring ahead of where you are</li>
+          <li>Make sure every move builds on the last — so growth sticks</li>
+        </ul>
+        <div style="margin-top:1.75rem;">
+          <a href="#canada-landscape" class="btn-methodology" style="font-family:'Nunito Sans',sans-serif;font-size:0.63rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(200,168,75,0.35);padding:0.65rem 1.25rem;text-decoration:none;border-radius:2px;display:inline-block;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.background='rgba(200,168,75,0.08)';" onmouseout="this.style.borderColor='rgba(200,168,75,0.35)';this.style.background='transparent';">The Landscape →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section id="for">
+  <div class="wrap">
+    <div class="for-header">
+      <div class="section-label reveal">Who We Serve</div>
+      <!-- Headline unchanged -->
+      <h2 class="section-headline reveal reveal-d1">For owners who are <em>done guessing.</em></h2>
+      <!-- Updated: food sector qualifier + SME specificity -->
+      <p class="body-text reveal reveal-d2">This isn't for every food business. It's for the owner who's past ambition and into execution — and knows the difference between advice that sounds good and advice that holds up.</p>
+    </div>
+    <div class="for-grid">
+      <div class="for-item reveal">
+        <div class="for-check"><svg viewBox="0 0 13 13" fill="none" width="12" height="12"><polyline points="2,7 5,10 11,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <!-- Unchanged title -->
+          <div class="for-item-title">The owner who has outgrown the advice available to them</div>
+          <!-- Updated: food sector -->
+          <p class="for-item-body">Your accountant keeps the books. Your lawyer manages risk. But nobody is thinking with you about the full picture — where this is going and how to get there well.</p>
+        </div>
+      </div>
+      <div class="for-item reveal reveal-d1">
+        <div class="for-check"><svg viewBox="0 0 13 13" fill="none" width="12" height="12"><polyline points="2,7 5,10 11,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <!-- Unchanged -->
+          <div class="for-item-title">The quiet operator who wants real results, not a spotlight</div>
+          <p class="for-item-body">You're building something in food that sustains itself and earns you the freedom to keep doing work that matters.</p>
+        </div>
+      </div>
+      <div class="for-item reveal reveal-d1">
+        <div class="for-check"><svg viewBox="0 0 13 13" fill="none" width="12" height="12"><polyline points="2,7 5,10 11,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <!-- Unchanged -->
+          <div class="for-item-title">The owner facing a capital decision</div>
+          <!-- Updated: food sector debt/equity dynamics -->
+          <p class="for-item-body">Not just "can I raise" — but should I, on what terms, and what does it mean for everything that follows.</p>
+        </div>
+      </div>
+      <div class="for-item reveal reveal-d2">
+        <div class="for-check"><svg viewBox="0 0 13 13" fill="none" width="12" height="12"><polyline points="2,7 5,10 11,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <!-- Unchanged -->
+          <div class="for-item-title">The owner who wants growth that compounds</div>
+          <p class="for-item-body">Not a spike. Not a headline. A food business that builds on itself year after year, with every decision reinforcing the last.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY / HEDGEHOG & FOX -->
+<section id="canada-landscape" style="background:var(--navy);padding:6rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-20%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(74,124,89,0.18) 0%,transparent 65%);pointer-events:none;"></div>
+
+  <div class="wrap" style="position:relative;z-index:2;">
+    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;" class="reveal">
+      <div style="width:1.5rem;height:2px;background:var(--teal-light);border-radius:1px;"></div>
+      <span style="font-size:0.62rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--teal-light);">The Canadian Food Landscape</span>
+    </div>
+
+    <div style="max-width:52ch;margin-bottom:3.5rem;" class="reveal reveal-d1">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3vw,2.7rem);font-weight:500;color:var(--white);line-height:1.15;letter-spacing:-0.01em;margin-bottom:1.25rem;">Two problems hold most Canadian food businesses <em style="color:var(--gold-light);">back from the next level.</em></h2>
+      <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.85;">The opportunity in Canadian food is real. The barriers are specific. Most owners at the $2M–$20M stage aren't held back by ambition or effort — they're held back by the inability to access growth capital on the right terms, and by decisions that don't compound over time. We built our advisory to solve exactly those two things.</p>
+    </div>
+
+    <!-- Two-problem layout -->
+    <div class="landscape-cards reveal reveal-d2" style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-bottom:3.5rem;">
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);padding:2.25rem;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);"></div>
+        <div style="font-size:0.55rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1rem;">Problem One</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:500;color:var(--white);margin-bottom:0.85rem;line-height:1.25;">Growth capital is available — but most owners can't access it</div>
+        <p style="font-size:0.82rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:1.5rem;">BDC, FCC, and private lenders are active in Canadian food. The gap isn't the money — it's positioning. Most owners arrive at the capital conversation unprepared, or asking for the wrong thing. The result: worse terms, smaller facilities, or no deal at all.</p>
+        <!-- Stats -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(200,168,75,0.15);border-radius:2px;overflow:hidden;margin-bottom:1.5rem;">
+          <div style="background:rgba(255,255,255,0.03);padding:1rem 1.1rem;">
+            <span style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:500;color:var(--gold-light);display:block;line-height:1;margin-bottom:0.3rem;">$140B+</span>
+            <span style="font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);line-height:1.4;">Sector size — capital is here</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.03);padding:1rem 1.1rem;">
+            <span style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:500;color:var(--gold-light);display:block;line-height:1;margin-bottom:0.3rem;">$2M–$20M</span>
+            <span style="font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);line-height:1.4;">Where most food businesses stall</span>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:1.25rem;">
+          <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-light);margin-bottom:0.5rem;">How we solve it</div>
+          <p style="font-size:0.8rem;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.7;">We work with you before the conversation starts — structuring your story, your numbers, and your ask so you enter from a position of strength, not need.</p>
+        </div>
+      </div>
+      <div style="background:rgba(74,124,89,0.06);border:1px solid rgba(74,124,89,0.2);padding:2.25rem;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:var(--teal);"></div>
+        <div style="font-size:0.55rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal-light);margin-bottom:1rem;">Problem Two</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:500;color:var(--white);margin-bottom:0.85rem;line-height:1.25;">Most food businesses grow in bursts — but the wins don't stick</div>
+        <p style="font-size:0.82rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:1.5rem;">A good year, a smart hire, a successful product launch. But without a clear thread connecting those wins, you end up rebuilding from the same place each time. We help you grow in a way where each move builds on the last — so your business gets stronger with every decision, not just bigger.</p>
+        <!-- Stats -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(74,124,89,0.25);border-radius:2px;overflow:hidden;margin-bottom:1.5rem;">
+          <div style="background:rgba(74,124,89,0.08);padding:1rem 1.1rem;">
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-light);display:block;margin-bottom:0.4rem;">Data-Driven Growth</span>
+            <p style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.6;margin:0;">We use your numbers to find where growth is actually coming from — and where it's quietly leaking out.</p>
+          </div>
+          <div style="background:rgba(74,124,89,0.08);padding:1rem 1.1rem;">
+            <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-light);display:block;margin-bottom:0.4rem;">Human-Designed Execution</span>
+            <p style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.6;margin:0;">The plan only works if your team can carry it. We design around the people, not just the strategy.</p>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(74,124,89,0.2);padding-top:1.25rem;">
+          <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-light);margin-bottom:0.5rem;">How we solve it</div>
+          <p style="font-size:0.8rem;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.7;">We sit alongside you, help you see the full picture, and make sure the decisions you're already making start working together — so growth sticks.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="landscape-bridge reveal reveal-d2" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:3rem;padding-top:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+      <p style="font-family:'Playfair Display',serif;font-size:1.05rem;font-style:italic;color:rgba(255,255,255,0.75);line-height:1.65;max-width:44ch;margin:0;">"The owners who win aren't the ones who work harder. They're the ones whose decisions compound."</p>
+      <a href="#services" style="flex-shrink:0;font-family:'Nunito Sans',sans-serif;font-size:0.63rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(200,168,75,0.35);padding:0.75rem 1.5rem;text-decoration:none;border-radius:2px;white-space:nowrap;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.background='rgba(200,168,75,0.08)';" onmouseout="this.style.borderColor='rgba(200,168,75,0.35)';this.style.background='transparent';">See How We Work →</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="wrap">
+    <div class="results-label reveal">Client Results</div>
+    <!-- Headline unchanged -->
+    <h2 class="results-hed reveal reveal-d1">What it looks like<br><em>when it works.</em></h2>
+    <!-- Updated: food sector context -->
+    <p style="font-size:0.85rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.8;max-width:48ch;margin-bottom:3rem;" class="reveal reveal-d1">Real outcomes from real business owners — across the food and beverage, agrifood, functional food, and food technology space, in six countries. References available on request.</p>
+    <div class="results-grid">
+
+      <div class="result-card reveal reveal-d1">
+        <!-- Updated badge: sector context -->
+        <div class="result-flag">🏭 Value-Added Food Processing</div>
+        <div class="result-badge">Diversified Food Business Group</div>
+        <div class="result-metrics">
+          <div>
+            <span class="result-metric-num">$300K→$22M</span>
+            <span class="result-metric-lbl">Business value</span>
+          </div>
+          <div>
+            <span class="result-metric-num">2.5 yrs</span>
+            <span class="result-metric-lbl">Partnership</span>
+          </div>
+        </div>
+        <!-- Quote unchanged -->
+        <p class="result-quote">"Originally starting my business with a $300,000 investment, Werner has been my advisor for the last 2.5 years — helping me fund and build out a diversified business group now worth $22M."</p>
+        <div class="result-role">Business Owner · Diversified Food Business Group</div>
+      </div>
+
+      <div class="result-card reveal reveal-d2">
+        <div class="result-flag">🌾 Agrifood · Value-Added Processing</div>
+        <div class="result-badge">Value-Added Processor</div>
+        <div class="result-metrics">
+          <div>
+            <span class="result-metric-num">$1.8M</span>
+            <span class="result-metric-lbl">Invested in modernization</span>
+          </div>
+          <div>
+            <span class="result-metric-num">Exit</span>
+            <span class="result-metric-lbl">Targeted 2–3 years</span>
+          </div>
+        </div>
+        <!-- Quote unchanged -->
+        <p class="result-quote">"Working with Werner for more than 3 years, he helped us invest $1.8M in modernization, restructure strategically, and position for a planned exit in the next 2 to 3 years."</p>
+        <div class="result-role">Founding Partner · Value-Added Processor</div>
+      </div>
+
+      <div class="result-card reveal reveal-d2">
+        <div class="result-flag">🌿 Functional Food · Food-as-Medicine</div>
+        <div class="result-badge">Food-as-Medicine Brand</div>
+        <div class="result-metrics">
+          <div>
+            <span class="result-metric-num">Seed → A</span>
+            <span class="result-metric-lbl">Investor rounds</span>
+          </div>
+          <div>
+            <span class="result-metric-num">Pivot</span>
+            <span class="result-metric-lbl">Growth → Profitability</span>
+          </div>
+        </div>
+        <!-- Quote unchanged -->
+        <p class="result-quote">"Werner has been instrumental in growing my 3rd startup through seed and Series A investor rounds — and helping me pivot from a focus on growth to profitable, sustainable scalability."</p>
+        <div class="result-role">Founder &amp; CEO · Food-as-Medicine Brand</div>
+      </div>
+
+      <div class="result-card reveal reveal-d3">
+        <div class="result-flag">🫙 Food Sector · Non-Profit</div>
+        <div class="result-badge">Non-Profit Food Organization</div>
+        <div class="result-metrics">
+          <div>
+            <span class="result-metric-num">Sector</span>
+            <span class="result-metric-lbl">Dev → Industry leader</span>
+          </div>
+          <div>
+            <span class="result-metric-num">Sustain.</span>
+            <span class="result-metric-lbl">Growth strategy</span>
+          </div>
+        </div>
+        <!-- Quote unchanged -->
+        <p class="result-quote">"Werner helped us transform from a participant into a genuine industry contributor — now focused on sustainable growth that serves the whole sector, not just our organisation."</p>
+        <div class="result-role">Executive Director · Non-Profit Food Organization</div>
+      </div>
+
+    </div>
+
+    <!-- Accordions -->
+    <div class="accordion-wrap reveal reveal-d2" style="margin-top:3rem;border-top:1px solid rgba(255,255,255,0.08);padding-top:2rem;display:flex;flex-direction:column;gap:2px;">
+
+      <!-- Customers -->
+      <div class="accordion-item" style="border:1px solid rgba(255,255,255,0.08);border-radius:2px;overflow:hidden;">
+        <button onclick="toggleAccordion(this)" style="width:100%;background:rgba(255,255,255,0.03);border:none;padding:1.1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;text-align:left;">
+          <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.6);">Some of our customers</span>
+          <svg class="accordion-icon" viewBox="0 0 16 16" fill="none" width="14" height="14" style="flex-shrink:0;transition:transform 0.25s;"><path d="M3 6l5 5 5-5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="accordion-body" style="display:none;padding:1.25rem 1.5rem 1.5rem;background:rgba(255,255,255,0.02);">
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <span class="acc-tag">Sperri (Novagevity)</span><span class="acc-tag">Outcast Foods</span><span class="acc-tag">Heiltsuk Devco</span><span class="acc-tag">Nova Scotia Agriculture</span><span class="acc-tag">Larkin Farms PEI</span><span class="acc-tag">Local by Atta</span><span class="acc-tag">The Sausage Factory</span><span class="acc-tag">Stirling Farms</span><span class="acc-tag">Osprey's Roost</span><span class="acc-tag">Helen B's</span><span class="acc-tag">Boulangerie La Vendeenne</span><span class="acc-tag">Massiah Group</span><span class="acc-tag">Naseeb International</span><span class="acc-tag">Cape Breton Foodhub</span><span class="acc-tag">The Station Food Hub Company</span><span class="acc-tag">Bonnyman Wild Blueberries</span><span class="acc-tag">Organic Nova Scotia</span><span class="acc-tag">Heal Tea</span><span class="acc-tag">German Doner Kebab</span><span class="acc-tag">Asmak</span><span class="acc-tag">Plant Veda</span><span class="acc-tag">Petite Riviere Farming Co</span><span class="acc-tag">All Natural Meats</span><span class="acc-tag">NSFA South Shore</span><span class="acc-tag">Nova Scotia Maple</span><span class="acc-tag">Agriculture in the Classroom</span><span class="acc-tag">CTCNS</span><span class="acc-tag">Magnetic Hill Winery</span><span class="acc-tag">Lindsay Lake Farms</span><span class="acc-tag">Halifax Bread Factory</span><span class="acc-tag">Global Food Industries</span><span class="acc-tag">Perfect Foods</span><span class="acc-tag">FoodByte</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Funders -->
+      <div class="accordion-item" style="border:1px solid rgba(255,255,255,0.08);border-radius:2px;overflow:hidden;">
+        <button onclick="toggleAccordion(this)" style="width:100%;background:rgba(255,255,255,0.03);border:none;padding:1.1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;text-align:left;">
+          <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.6);">Funders we work with</span>
+          <svg class="accordion-icon" viewBox="0 0 16 16" fill="none" width="14" height="14" style="flex-shrink:0;transition:transform 0.25s;"><path d="M3 6l5 5 5-5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="accordion-body" style="display:none;padding:1.25rem 1.5rem 1.5rem;background:rgba(255,255,255,0.02);">
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <span class="acc-tag">Nova Scotia Agriculture</span><span class="acc-tag">New Brunswick Agriculture</span><span class="acc-tag">Prince Edward Island Agriculture</span><span class="acc-tag">OMAFRA</span><span class="acc-tag">Manitoba Agriculture</span><span class="acc-tag">BC Agriculture</span><span class="acc-tag">Coastal Funds</span><span class="acc-tag">AAFC</span><span class="acc-tag">InnOvation PEI</span><span class="acc-tag">NPC</span><span class="acc-tag">Protein Industries Canada</span><span class="acc-tag">BDC</span><span class="acc-tag">EDC</span><span class="acc-tag">FCC</span><span class="acc-tag">Nadarra Ventures</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="contact-eyebrow reveal">Let's Talk</div>
+        <!-- Headline unchanged -->
+        <h2 class="contact-hed reveal reveal-d1">If this sounds like the right fit — <em>reach out.</em></h2>
+        <!-- Updated: food sector + SME specificity -->
+        <p class="contact-sub reveal reveal-d2">We work with a small number of owners at a time, on purpose. No pitch, no sales process. Just a straight conversation about whether this makes sense — and what it could look like if it does.</p>
+        <div class="contact-promises reveal reveal-d3">
+          <div class="promise"><span class="promise-dot"></span><span>No pitch. No sales team.</span></div>
+          <div class="promise"><span class="promise-dot"></span><span>A straight conversation about fit.</span></div>
+          <div class="promise"><span class="promise-dot"></span><span>Response within one business day.</span></div>
+        </div>
+      </div>
+      <div class="reveal reveal-d2">
+        <div class="form-card">
+          <div id="formDefault">
+            <p class="form-intro">Tell us a little about your food business and we'll be in touch.</p>
+            <form id="contactForm" action="https://formspree.io/f/xkopvzdj" method="POST" novalidate>
+              <input type="hidden" name="_subject" value="New enquiry from createvalue.com">
+              <input type="text" name="_gotcha" style="display:none">
+              <div class="form-group">
+                <label class="form-label" for="name">Full Name <span class="form-required">*</span></label>
+                <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
+                <span class="form-error" id="nameError">Please enter your name.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address <span class="form-required">*</span></label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="you@yourbusiness.com" required autocomplete="email">
+                <span class="form-error" id="emailError">Please enter a valid email address.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">What are you working on? <span style="color:var(--muted)">(optional)</span></label>
+                <!-- Updated placeholder: food sector context -->
+                <textarea class="form-input" id="message" name="message" rows="3" placeholder="A brief note about your food business — what you're building, the stage you're at, and what you're trying to figure out..." style="resize:vertical;"></textarea>
+              </div>
+              <button class="form-submit" type="submit" id="submitBtn">
+                <span id="submitLabel">Send Message</span>
+                <svg id="submitSpinner" style="display:none;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
+                    <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="0.8s" repeatCount="indefinite"/>
+                  </path>
+                </svg>
+              </button>
+            </form>
+            <p class="form-note">Your information is never shared or sold.</p>
+          </div>
+          <div id="formSuccess" class="form-state" style="display:none;">
+            <div class="state-icon success">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="state-title">Message received.</h3>
+            <p class="state-body">Thank you for reaching out. We'll be in touch within one business day.</p>
+          </div>
+          <div id="formError" class="form-state" style="display:none;">
+            <div class="state-icon error">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <h3 class="state-title">Something went wrong.</h3>
+            <p class="state-body">Please try again, or email us at <a href="mailto:wm@createvalue.ca" style="color:var(--teal-light);">wm@createvalue.ca</a></p>
+            <button class="form-retry" onclick="document.getElementById('formError').style.display='none';document.getElementById('formDefault').style.display='block';">Try Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo" style="font-family:'Nunito Sans',sans-serif;font-size:0.9rem;letter-spacing:-0.01em;margin-bottom:0.5rem;"><span style="font-weight:800;color:rgba(255,255,255,0.4);">MPS</span><span style="color:rgba(200,168,75,0.45);font-weight:300;margin:0 3px;">|</span><span style="color:rgba(18,160,144,0.5);font-weight:300;">CreateValue</span></div>
+    <!-- New: sector tags in footer -->
+    <div class="footer-sectors">
+      <span class="footer-sector-tag">Food &amp; Beverage</span>
+      <span class="footer-sector-tag">·</span>
+      <span class="footer-sector-tag">Agrifood</span>
+      <span class="footer-sector-tag">·</span>
+      <span class="footer-sector-tag">Functional Food</span>
+      <span class="footer-sector-tag">·</span>
+      <span class="footer-sector-tag">FoodTech</span>
+      <span class="footer-sector-tag">·</span>
+      <span class="footer-sector-tag">6 Countries</span>
+    </div>
+  </div>
+  <div class="footer-copy">© 2025 createvalue Advisory · Canada · wm@createvalue.ca</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  setTimeout(() => {
+    document.querySelectorAll('.hero .reveal, .hero-headline, .hero-sub, .hero-actions, .hero-right, .hero-stats').forEach(el => el.classList.add('visible'));
+  }, 100);
+
+  // Smooth scroll with nav offset (adjusted for sector ribbon)
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const id = link.getAttribute('href');
+      if (!id || id === '#') return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 90;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  // Mobile nav
+  const toggle = document.getElementById('menuToggle');
+  const drawer = document.getElementById('navDrawer');
+  const close = document.getElementById('drawerClose');
+  toggle.addEventListener('click', () => { drawer.classList.toggle('open'); document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : ''; });
+  close.addEventListener('click', () => { drawer.classList.remove('open'); document.body.style.overflow = ''; });
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => { drawer.classList.remove('open'); document.body.style.overflow = ''; });
+  });
+
+  // Contact form
+  const form = document.getElementById('contactForm');
+  if (form) {
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitLabel = document.getElementById('submitLabel');
+    const submitSpinner = document.getElementById('submitSpinner');
+
+    nameInput.addEventListener('input', () => { nameInput.classList.remove('invalid'); nameError.classList.remove('visible'); });
+    emailInput.addEventListener('input', () => { emailInput.classList.remove('invalid'); emailError.classList.remove('visible'); });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      let valid = true;
+      if (!nameInput.value.trim()) { nameInput.classList.add('invalid'); nameError.classList.add('visible'); valid = false; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) { emailInput.classList.add('invalid'); emailError.classList.add('visible'); valid = false; }
+      if (!valid) return;
+      submitBtn.disabled = true;
+      submitLabel.style.display = 'none';
+      submitSpinner.style.display = 'inline-block';
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+        if (res.ok) { document.getElementById('formDefault').style.display = 'none'; document.getElementById('formSuccess').style.display = 'flex'; }
+        else throw new Error();
+      } catch { document.getElementById('formDefault').style.display = 'none'; document.getElementById('formError').style.display = 'flex'; }
+    });
+  }
+</script>
+
+
+<script>
+function toggleAccordion(btn) {
+  const body = btn.nextElementSibling;
+  const icon = btn.querySelector('.accordion-icon');
+  const isOpen = body.style.display === 'block';
+  body.style.display = isOpen ? 'none' : 'block';
+  icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+}
+</script>
+</body>
+</html>
