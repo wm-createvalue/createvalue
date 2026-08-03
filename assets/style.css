@@ -394,3 +394,8 @@ a.logo-pill:hover{border-color:var(--teal);color:var(--navy);transform:translate
 @media(max-width:920px){
   .related-grid,.two-col,.distinguish-grid{grid-template-columns:1fr}
 }
+
+/* ---- Button overflow safety net on narrow screens ---- */
+@media(max-width:480px){
+  .btn{white-space:normal;text-align:left;line-height:1.25}
+}
